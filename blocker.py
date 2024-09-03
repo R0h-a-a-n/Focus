@@ -5,11 +5,9 @@ def block_websites(websites):
     print("Websites blocked.")
 
 def unblock_websites(websites):
-    # Read the current contents of the hosts file
     with open("C:/Windows/System32/drivers/etc/hosts", "r") as file:
         lines = file.readlines()
 
-    # Rewrite the hosts file, excluding the blocked websites
     with open("C:/Windows/System32/drivers/etc/hosts", "w") as file:
         for line in lines:
             if not any(website in line for website in websites):
